@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panel Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-1:#0f172a;
+      --bg-2:#111827;
+      --accent:#6366f1;
+      --accent-600:#4f46e5;
+      --card:#0b1220ee;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --ring: rgba(99,102,241,.45);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color: var(--text);
+      background:
+        radial-gradient(60vmax 60vmax at 10% 10%, rgba(99,102,241,.15), transparent 60%),
+        radial-gradient(40vmax 40vmax at 90% 20%, rgba(236,72,153,.12), transparent 60%),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2));
+      display:grid;
+      place-items:center;
+      padding: 24px;
+    }
+    .panel{
+      max-width: 420px;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(148,163,184,.15);
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.35);
+      padding: 28px;
+    }
+    h1{ font-size: 22px; text-align:center; font-weight: 700; margin-bottom: 8px; }
+    .sub{ text-align:center; color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+    label{ font-size: 13px; color: #cbd5e1; display:block; margin-bottom:6px; }
+    .field{ position:relative; margin-bottom:14px; }
+    input[type=text], input[type=password]{
+      width:100%; padding:12px 14px 12px 42px;
+      border-radius:12px; border:1px solid rgba(148,163,184,.25);
+      background: rgba(2,6,23,.6); color:var(--text);
+    }
+    input:focus{ border-color: var(--accent); box-shadow: 0 0 0 4px var(--ring); outline:none; }
+    .btn{
+      display:block; width:100%;
+      padding: 12px; border:none; border-radius:12px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-600));
+      color:#fff; font-weight:600; font-size:15px;
+      cursor:pointer;
+    }
+    footer{ margin-top:16px; text-align:center; color:var(--muted); font-size:12px; }
+  </style>
+</head>
+<body>
+  <main class="panel">
+    <h1>Panel Login</h1>
+    <p class="sub">Welcome back, please login</p>
+    <form id="loginForm">
+      <div class="field">
+        <label for="userid">User ID</label>
+        <input id="userid" type="text" placeholder="Enter your user ID" required>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Enter your password" required>
+      </div>
+      <button class="btn" type="submit">Login</button>
+    </form>
+    <footer>© <span id="year"></span> YourBrand. All rights reserved.</footer>
+  </main>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('loginForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Demo only. Connect to backend API here!');
+    });
+  </script>
+</body>
+</html>
